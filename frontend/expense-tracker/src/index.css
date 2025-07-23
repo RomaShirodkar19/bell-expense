@@ -26,3 +26,15 @@
 .btn-primary {
     @apply w-full bg-primary hover:bg-green-600 text-slate-950 shadow-sm shadow-slate-700 font-bold py-3 px-4 mt-3  rounded-xl
 }
+
+.card {
+    @apply bg-[#1b1c1a] p-6 rounded-3xl border border-gray-200/50;
+}
+
+.card-btn {
+    @apply flex items-center gap-3 text-[12px] font-medium text-white hover:text-primary border border-slate-100/50 rounded-xl hover:border-primary hover:bg-emerald-950/50 px-4 py-1.5 cursor-pointer
+}
+
+.add-btn {
+    @apply flex items-center gap-3 text-[12px] font-medium text-white hover:text-primary border border-slate-100/50 rounded-xl hover:border-primary hover:bg-emerald-950/50 px-4 py-1.5 cursor-pointer
+}

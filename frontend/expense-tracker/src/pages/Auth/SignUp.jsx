@@ -1,13 +1,15 @@
 import React, { useState, useContext } from 'react'
 import AuthLayout from '../../components/Layouts/AuthLayout'
 import { Link, useNavigate } from 'react-router-dom';
-import Input from '../../components/Layouts/Inputs/Input';
+import Input from "../../components/Inputs/Input"
 import { validateEmail } from '../../utils/helper';
-import ProfilePhotoSelector from '../../components/Layouts/Inputs/ProfilePhotoSelector';
+import ProfilePhotoSelector from '../../components/Inputs/ProfilePhotoSelector'
 import axiosInstance from '../../utils/axiosInstance';
 import { API_PATHS } from '../../utils/apiPaths';
 import { UserContext } from '../../context/userContext';
 import uploadImage from '../../utils/uploadImage';
+
+
 const SignUp = () => {
   const [profilePic, setProfilePic] = useState(null);
   const [fullName, setFullName] = useState("");

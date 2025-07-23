@@ -11,7 +11,7 @@ const AuthLayout = ({children}) => {
             <div className='w-70 h-70 rounded-4xl border-50 border-emerald-900 absolute -top-20 -left-15'></div>
             <div className='w-80 h-80 rounded-[500px] border-50 border-black absolute top-110 -right-20'></div>
 
-            <div className='relative backdrop-blur-sm bg-white/30 p-4 rounded-lg'>
+            <div className='backdrop-blur-sm bg-white/30 p-4 rounded-lg relative'>
                 <h2 className='text-3xl lg:text-5xl font-semibold text-black px-10'>Smart spending starts here.</h2>
             </div>
 

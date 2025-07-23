@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
 import AuthLayout from '../../components/Layouts/AuthLayout'
 import { Link, useNavigate } from 'react-router-dom';
-import Input from '../../components/Layouts/Inputs/Input';
+import Input from '../../components/Inputs/Input';
 import { validateEmail } from '../../utils/helper';
 import { useContext } from 'react';
 import { UserContext } from '../../context/userContext';
+import axiosInstance from '../../utils/axiosInstance';
+import { API_PATHS } from '../../utils/apiPaths';
 
 
 const Login = () => {
@@ -20,6 +22,7 @@ const Login = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    console.log("Login Clicked");
 
     if(!validateEmail(email)) {
       setError("Please enter a valid email address.");
@@ -33,26 +36,27 @@ const Login = () => {
 
     setError("");
 
-        try {
-        const response = await axiosInstance.post(API_PATHS.AUTH.LOGIN, {
-            email,
-            password,
-        });
+    try {
+      const response = await axiosInstance.post(API_PATHS.AUTH.LOGIN, {
+        email,
+        password,
+      });
 
-        const { token, user } = response.data;
+      const { token, user } = response.data;
 
-        if (token) {
-            localStorage.setItem("token", token);
-            updateUser(user);
-            navigate("/dashboard");
-        }
-        } catch (error) {
-            if (error.response && error.response.data.message) {
-                setError(error.response.data.message);
-            } else {
-                setError("Something went wrong. Please try again.");
-            }
-        }
+      if(token) {
+        localStorage.setItem("token", token);
+        updateUser(user);
+        navigate("/dashboard");
+      }
+    } catch(error){
+      if (error.response && error.response.data.message) {
+        setError(error.response.data.message);
+      } else {
+        setError("Something went wrong. Please try again.");
+      }
+    }
+
   }
   return (
     <AuthLayout>
@@ -94,11 +98,8 @@ const Login = () => {
       </form>
     
       </div>
-
- 
-
     </AuthLayout>
   )
 }
 
-export default Login
+export default Login;
